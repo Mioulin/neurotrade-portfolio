@@ -6,7 +6,7 @@ NeuroTrade Demo: Backtesting Example
 This example demonstrates how to use the NeuroTrade system for backtesting
 neuroscience-inspired trading strategies.
 
-Author: Your Name
+Author: Zalina Dezhina
 Date: September 2025
 """
 
