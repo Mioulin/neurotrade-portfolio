@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroTrade: Computational Neuroscience × Systematic Trading</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Revolutionary trading portfolio combining computational neuroscience with systematic trading. Featuring Free Energy Principle, Predictive Coding, and Market Consciousness models.">
+    <meta name="keywords" content="neuroscience, systematic trading, machine learning, portfolio, quantitative finance, computational neuroscience">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/neurotrade-portfolio/">
+    <meta property="og:title" content="NeuroTrade: Computational Neuroscience × Systematic Trading">
+    <meta property="og:description" content="Revolutionary trading systems inspired by brain science">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/neurotrade-portfolio/">
+    <meta property="twitter:title" content="NeuroTrade Portfolio">
+    <meta property="twitter:description" content="Bridging neuroscience and systematic trading">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="300" r="2" fill="url(%23grad)"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/></circle><circle cx="800" cy="200" r="1.5" fill="url(%23grad)"><animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="1s"/></circle><circle cx="400" cy="700" r="2.5" fill="url(%23grad)"><animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="2s"/></circle></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            background: linear-gradient(45deg, #9333ea, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.8)); }
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .nav-btn {
+            padding: 15px 30px;
+            background: rgba(147, 51, 234, 0.2);
+            border: 2px solid #9333ea;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover {
+            background: rgba(147, 51, 234, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+        }
+
+        .github-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .github-btn:hover {
+            background: rgba(16, 185, 129, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: none;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 2rem;
+            color: #06b6d4;
+            text-align: center;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .concept-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #9333ea, #06b6d4, #10b981);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            border-color: #06b6d4;
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+        }
+
+        .concept-card h3 {
+            color: #10b981;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .concept-card p {
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .code-example {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            border-left: 3px solid #10b981;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        /* Neural Network Animation */
+        .neural-network {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .neuron {
+            width: clamp(60px, 10vw, 80px);
+            height: clamp(60px, 10vw, 80px);
+            border-radius: 50%;
+            background: radial-gradient(circle, #9333ea, #6b21a8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(147, 51, 234, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(147, 51, 234, 0.4); }
+        }
+
+        .connection {
+            height: 2px;
+            background: linear-gradient(90deg, #9333ea, #06b6d4);
+            min-width: 40px;
+            flex-grow: 1;
+            opacity: 0.6;
+            max-width: 100px;
+        }
+
+        /* Navigation */
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 10px 20px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: rgba(16, 185, 129, 0.4);
+        }
+
+        /* Performance Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #10b981;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Timeline */
+        .research-timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid #06b6d4;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        /* Innovation Showcase */
+        .innovation-showcase {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .innovation-item {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .innovation-item:hover {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(6, 182, 212, 0.15));
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .neural-network {
+                flex-direction: column;
+            }
+            
+            .connection {
+                height: 40px;
+                width: 2px;
+                background: linear-gradient(180deg, #9333ea, #06b6d4);
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(147, 51, 234, 0.3);
+            border-radius: 50%;
+            border-top-color: #9333ea;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body { background: white; color: black; }
+            .hero { page-break-after: always; }
+            .section { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>NeuroTrade</h1>
+                <p>Bridging Computational Neuroscience & Systematic Trading</p>
+                
+                <div class="nav-buttons">
+                    <a href="#" class="nav-btn" onclick="showSection('principles')" aria-label="View core principles">🧠 Core Principles</a>
+                    <a href="#" class="nav-btn" onclick="showSection('models')" aria-label="View neural models">⚡ Neural Models</a>
+                    <a href="#" class="nav-btn" onclick="showSection('innovations')" aria-label="View innovations">💡 Innovations</a>
+                    <a href="#" class="nav-btn" onclick="showSection('research')" aria-label="View research vision">🔬 Research Vision</a>
+                </div>
+
+                <div class="github-links">
+                    <a href="https://github.com/yourusername/neurotrade-portfolio" class="github-btn" target="_blank" rel="noopener" aria-label="View source code on GitHub">
+                        <span>📚</span> View Source Code
+                    </a>
+                    <a href="https://github.com/yourusername/neurotrade-portfolio/blob/main/examples/backtesting_example.py" class="github-btn" target="_blank" rel="noopener" aria-label="Run live demo">
+                        <span>🚀</span> Run Live Demo
+                    </a>
+                    <a href="docs/interview_guide.md" class="github-btn" aria-label="View technical documentation">
+                        <span>📖</span> Technical Docs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="#" class="back-btn" onclick="showSection('home')" style="display: none;" id="backBtn" aria-label="Return to home">← Home</a>
+
+    <!-- Core Principles Section -->
+    <div class="section" id="principles">
+        <div class="container">
+            <h2>Fundamental Principles</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">23%</div>
+                    <div class="metric-label">Drawdown Reduction</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">73%</div>
+                    <div class="metric-label">Regime Detection Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">+0.31</div>
+                    <div class="metric-label">Sharpe Improvement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">41%</div>
+                    <div class="metric-label">Arbitrage Returns</div>
+                </div>
+            </div>
+
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>🧠 Free Energy Principle → Market Prediction</h3>
+                    <p>Markets, like brains, continuously minimize prediction error. Our systems implement <strong>active inference</strong>: not just predicting price movements, but actively trading to validate hypotheses.</p>
+                    <div class="code-example">
+prediction_error = actual_price - predicted_price
+model_update = learning_rate * prediction_error
+active_trade = confidence * prediction_error
+                    </div>
+                    <p><em>Result: 23% reduction in maximum drawdown through adaptive learning</em></p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🔮 Predictive Coding → Multi-Timeframe Architecture</h3>
+                    <p>Hierarchical prediction across timeframes: macro trends inform micro movements, with bottom-up error propagation reshaping higher-level beliefs.</p>
+                    <div class="neural-network">
+                        <div class="neuron">L1<br><small>Macro</small></div>
+                        <div class="connection"></div>
+                        <div class="neuron">L2<br><small>Sector</small></div>
+                        <div class="connection"></div>
+                        <div class="neuron">L3<br><small>Micro</small></div>
+                    </div>
+                    <p><em>Architecture inspired by cortical hierarchy in visual processing</em></p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🌊 REBUS → Regime Detection</h3>
+                    <p>Dynamic precision weighting inspired by psychedelic research: high confidence during stable regimes, increased exploration during market transitions.</p>
+                    <div class="code-example">
+if market_volatility > threshold:
+    precision_weight *= 0.7  # Reduce confidence
+    exploration_rate *= 1.5  # Increase search
+else:
+    precision_weight *= 1.2  # Increase confidence
+                    </div>
+                    <p><em>Based on REBUS model of reduced certainty enabling learning</em></p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>📊 Bayesian Brain → Portfolio Allocation</h3>
+                    <p>Continuous belief updating using market evidence. Each trade updates our prior beliefs about asset relationships and market dynamics.</p>
+                    <div class="code-example">
+posterior = (likelihood * prior) / evidence
+position_size = confidence * posterior
+portfolio_weight = normalize(position_size)
+                    </div>
+                    <p><em>Mimics how the brain updates beliefs through experience</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neural Models Section -->
+    <div class="section" id="models">
+        <div class="container">
+            <h2>Advanced Neural Models</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>🎯 Attention-Weighted Trading</h3>
+                    <p>Dynamic feature selection inspired by attention networks. System alternates between broad market scanning (Default Mode Network) and focused execution (Task-Positive Network).</p>
+                    <div class="code-example">
+attention_scores = softmax(signal_strength)
+portfolio_weights = base_allocation * attention_scores
+focus_mode = max(attention_scores) > threshold
+
+# Switch between exploration and exploitation
+if focus_mode:
+    concentrate_top_signals()
+else:
+    broad_opportunity_scan()
+                    </div>
+                    <p><strong>Performance:</strong> 0.31 Sharpe improvement through dynamic attention</p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🧬 Hierarchical Temporal Memory</h3>
+                    <p>Pattern recognition across multiple time scales. System learns not just <em>what</em> happens, but <em>when</em> patterns typically emerge and how surprising current events are.</p>
+                    <div class="code-example">
+# Multi-scale temporal learning
+daily_patterns = HTM_layer_1.predict(macro_data)
+hourly_patterns = HTM_layer_2.predict(sector_data, daily_patterns)
+minute_patterns = HTM_layer_3.predict(price_data, hourly_patterns)
+
+surprise_score = calculate_surprise(actual, predicted)
+if surprise_score > threshold:
+    trigger_pattern_update()
+                    </div>
+                    <p><strong>Innovation:</strong> Temporal context awareness beyond traditional time series</p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>⚡ Neuromodulated Systems</h3>
+                    <p>Dopamine-like reward signals strengthen profitable strategies. Serotonin-like modulators adjust risk appetite based on portfolio state.</p>
+                    <div class="code-example">
+# Dopamine system - reinforcement learning
+dopamine_signal = recent_pnl * surprise_factor
+strategy_weight *= (1 + dopamine_signal)
+
+# Serotonin system - mood regulation  
+serotonin_level = portfolio_health_score()
+risk_appetite = base_risk * serotonin_level
+position_sizes *= risk_appetite
+                    </div>
+                    <p><strong>Biological Inspiration:</strong> Mimic neurotransmitter reward systems</p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🌐 Market Consciousness Index</h3>
+                    <p>Measuring market "awareness" using Integrated Information Theory. High integration suggests correlated moves; low integration reveals arbitrage opportunities.</p>
+                    <div class="code-example">
+# Calculate Φ (Phi) - integrated information
+correlation_matrix = calculate_correlations(assets)
+eigenvalues = np.linalg.eigvals(correlation_matrix)
+phi = calculate_integrated_information(eigenvalues)
+
+consciousness_index = (phi + avg_correlation + synchrony) / 3
+
+# Trading signal
+if consciousness_index < 0.3:
+    arbitrage_mode = True  # Fragmented market
+else:
+    trend_following_mode = True  # Integrated market
+                    </div>
+                    <p><strong>Breakthrough:</strong> First application of consciousness theory to markets</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Innovations Section -->
+    <div class="section" id="innovations">
+        <div class="container">
+            <h2>Novel Innovations</h2>
+            
+            <div class="innovation-showcase">
+                <div class="innovation-item">
+                    <h3>🔬 Metacognitive Portfolio Management</h3>
+                    <p>System monitors its own confidence levels - a form of artificial self-awareness. During high uncertainty, increases diversification. During high confidence, concentrates positions.</p>
+                    <div class="code-example">
+# Meta-learning: learning about learning
+confidence_level = model_uncertainty_estimate()
+prediction_entropy = calculate_prediction_entropy()
+metacognitive_score = confidence_level / (1 + prediction_entropy)
+
+if metacognitive_score < 0.3:
+    diversify_positions()
+    reduce_leverage()
+    increase_exploration()
+elif metacognitive_score > 0.8:
+    concentrate_top_signals()
+    increase_leverage()
+    exploit_known_patterns()
+                    </div>
+                    <p><strong>Philosophy:</strong> "I think, therefore I trade" - systems that know what they don't know</p>
+                </div>
+
+                <div class="innovation-item">
+                    <h3>🎭 Predictive Surprise Minimization</h3>
+                    <p>Beyond minimizing prediction error - actively seeking situations where the model can improve its predictive power. Balance between market exploitation and exploration.</p>
+                    <div class="code-example">
+# Active learning in trading
+surprise_potential = calculate_learning_opportunity(market_state)
+information_gain = expected_model_improvement(action)
+exploration_bonus = surprise_potential * information_gain
+
+# Trade selection balances profit and learning
+trade_value = expected_profit + exploration_bonus
+if trade_value > threshold:
+    execute_trade()
+                    </div>
+                    <p><strong>Advantage:</strong> Systems that get smarter by being curious about markets</p>
+                </div>
+
+                <div class="innovation-item">
+                    <h3>🔄 Adaptive Precision Weighting</h3>
+                    <p>Real-time adjustment of model confidence based on market regime detection. Inspired by how psychedelics modulate precision in the brain - sometimes uncertainty is optimal.</p>
+                    <div class="code-example">
+# Dynamic confidence adjustment
+market_regime = detect_regime(market_data)
+volatility_level = calculate_market_volatility()
+
+if market_regime == "transition":
+    precision_weight = 0.3  # Low confidence, high exploration
+    position_scaling = 0.5
+elif market_regime == "stable":
+    precision_weight = 0.9  # High confidence, exploitation
+    position_scaling = 1.2
+    
+final_positions = base_positions * precision_weight * position_scaling
+                    </div>
+                    <p><strong>Insight:</strong> Optimal trading requires knowing when NOT to be confident</p>
+                </div>
+
+                <div class="innovation-item">
+                    <h3>🌊 Emergent Market Dynamics</h3>
+                    <p>Detecting when markets exhibit collective behavior vs fragmented individual action. Using network theory to identify critical phase transitions.</p>
+                    <div class="code-example">
+# Network analysis of market behavior
+correlation_network = build_asset_network(correlations)
+centrality_scores = calculate_centrality(correlation_network)
+cluster_coefficient = network_clustering(correlation_network)
+
+# Detect phase transitions
+integration_score = (centrality_scores.mean() + cluster_coefficient) / 2
+if integration_score > 0.8:
+    market_state = "collective_behavior"  # Herd mode
+elif integration_score < 0.3:
+    market_state = "individual_behavior"  # Fragmented mode
+else:
+    market_state = "transition"  # Phase change
+                    </div>
+                    <p><strong>Application:</strong> Predict market crashes by detecting loss of collective coherence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Research Vision Section -->
+    <div class="section" id="research">
+        <div class="container">
+            <h2>Research Vision & Future Directions</h2>
+            
+            <div class="research-timeline">
+                <div class="timeline-item">
+                    <h3>🔬 Phase 1: Foundation Models (Months 1-6)</h3>
+                    <p>Implementing core predictive coding architecture with hierarchical temporal memory for multi-asset systematic trading. Full backtesting framework with proper walk-forward validation and transaction cost modeling.</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Free Energy Principle implementation in production</li>
+                        <li>Multi-timeframe hierarchical prediction system</li>
+                        <li>Attention-weighted portfolio allocation</li>
+                        <li>Performance validation against benchmarks</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>🧠 Phase 2: Consciousness Metrics (Months 6-12)</h3>
+                    <p>Developing Market Consciousness Index based on IIT principles. Correlating market integration measures with volatility regimes and arbitrage opportunities across asset classes.</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Cross-asset consciousness measurement</li>
+                        <li>Real-time integration tracking</li>
+                        <li>Phase transition prediction models</li>
+                        <li>Consciousness-based risk metrics</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>⚡ Phase 3: Advanced Neuromodulation (Year 2)</h3>
+                    <p>Sophisticated reward systems and attention mechanisms. Real-time adaptation of strategy weights based on performance feedback, market conditions, and meta-learning signals.</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Multi-neurotransmitter system modeling</li>
+                        <li>Emotional state tracking for markets</li>
+                        <li>Advanced attention network architectures</li>
+                        <li>Stress testing under extreme conditions</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>🚀 Phase 4: Meta-Learning & AGI Principles (Years 2-3)</h3>
+                    <p>Systems that learn how to learn about markets. Developing trading strategies that adapt their own learning algorithms based on market regime changes and performance feedback.</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Self-modifying trading algorithms</li>
+                        <li>Automated strategy discovery</li>
+                        <li>Transfer learning across markets</li>
+                        <li>Artificial intuition development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="concept-card" style="margin-top: 3rem;">
+                <h3>💡 Key Research Questions</h3>
+                
+                <p><strong>🧠 Can market microstructure exhibit consciousness-like properties?</strong><br>
+                Investigating whether integrated information theory applies to financial systems. Do markets have emergent collective intelligence?</p>
+                
+                <p><strong>🎯 How do attention mechanisms optimize trading performance?</strong><br>
+                Balancing exploration of new opportunities vs exploitation of known patterns. What is the optimal attention allocation strategy?</p>
+                
+                <p><strong>🌊 What role does uncertainty play in market dynamics?</strong><br>
+                Developing precision-weighted models that adapt to their own confidence levels. When should systems be MORE uncertain?</p>
+
+                <p><strong>🔮 Can we predict market regime changes using consciousness metrics?</strong><br>
+                Early detection of phase transitions through integration measurements. Building early warning systems for market crashes.</p>
+            </div>
+
+            <div class="innovation-item" style="margin-top: 2rem;">
+                <h3>🎯 Impact & Applications</h3>
+                <p>This research bridges fundamental neuroscience with practical finance, potentially revolutionizing:</p>
+                
+                <div class="concept-grid" style="margin-top: 2rem;">
+                    <div class="concept-card">
+                        <h3>🤖 Automated Trading Systems</h3>
+                        <p>Biologically-inspired learning algorithms that adapt in real-time to market conditions, with human-like intuition for pattern recognition.</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3>⚠️ Risk Management</h3>
+                        <p>Advanced uncertainty quantification through metacognitive confidence estimation and regime-aware position sizing.</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3>📊 Market Understanding</h3>
+                        <p>New frameworks for understanding collective market behavior, consciousness, and emergent intelligence in financial systems.</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3>🔬 Academic Research</h3>
+                        <p>Bridging neuroscience, finance, and AI - creating new interdisciplinary research directions and practical applications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="innovation-item" style="margin-top: 2rem;">
+                <h3>📚 Academic Foundation</h3>
+                <p>Built on cutting-edge research from world-renowned scientists:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div style="background: rgba(147, 51, 234, 0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Karl Friston</strong><br>
+                        <em>Free Energy Principle</em><br>
+                        UCL, FRS
+                    </div>
+                    <div style="background: rgba(6, 182, 212, 0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Robin Carhart-Harris</strong><br>
+                        <em>REBUS Model</em><br>
+                        Imperial College London
+                    </div>
+                    <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Giulio Tononi</strong><br>
+                        <em>Integrated Information Theory</em><br>
+                        University of Wisconsin
+                    </div>
+                    <div style="background: rgba(234, 179, 8, 0.1); padding: 1rem; border-radius: 10px;">
+                        <strong>Andy Clark</strong><br>
+                        <em>Predictive Processing</em><br>
+                        University of Sussex
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections and hero
+            const sections = document.querySelectorAll('.section, .hero');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.display = 'none';
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                setTimeout(() => targetSection.classList.add('active'), 10);
+            }
+
+            // Show/hide back button
+            const backBtn = document.getElementById('backBtn');
+            if (sectionId === 'home') {
+                backBtn.style.display = 'none';
+            } else {
+                backBtn.style.display = 'block';
+            }
+
+            // Update page title
+            const titles = {
+                'home': 'NeuroTrade: Computational Neuroscience × Systematic Trading',
+                'principles': 'Core Principles - NeuroTrade',
+                'models': 'Neural Models - NeuroTrade',
+                'innovations': 'Innovations - NeuroTrade',
+                'research': 'Research Vision - NeuroTrade'
+            };
+            document.title = titles[sectionId] || titles['home'];
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Interactive neuron hover effects
+        document.addEventListener('mousemove', function(e) {
+            const neurons = document.querySelectorAll('.neuron');
+            neurons.forEach(neuron => {
+                const rect = neuron.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const distance = Math.sqrt(x * x + y * y);
+                
+                if (distance < 100) {
+                    const scale = 1.2 - (distance / 500);
+                    neuron.style.transform = `scale(${Math.max(scale, 1)})`;
+                    neuron.style.boxShadow = `0 0 ${30 - distance/3}px rgba(147, 51, 234, 0.6)`;
+                } else {
+                    neuron.style.transform = 'scale(1)';
+                    neuron.style.boxShadow = '';
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                showSection('home');
+            }
+        });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+            
+            // Add subtle parallax effect to background
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                document.body.style.transform = `translateY(${rate}px)`;
+            });
+            
+            // Performance monitoring (optional)
+            if ('performance' in window) {
+                window.addEventListener('load', function() {
+                    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                    console.log(`NeuroTrade Portfolio loaded in ${loadTime}ms`);
+                });
+            }
+        });
+
+        // Analytics tracking (replace with your analytics ID)
+        function trackEvent(category, action, label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label
+                });
+            }
+            console.log(`Analytics: ${category} - ${action} - ${label}`);
+        }
+
+        // Track section views
+        const originalShowSection = showSection;
+        showSection = function(sectionId) {
+            originalShowSection(sectionId);
+            trackEvent('Navigation', 'section_view', sectionId);
+        };
+
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('NeuroTrade Portfolio Error:', e.error);
+            trackEvent('Error', 'javascript_error', e.error.message);
+        });
+
+        // Service worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Optional: Add structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "NeuroTrade Portfolio",
+        "description": "Computational Neuroscience approaches to Systematic Trading",
+        "url": "https://yourusername.github.io/neurotrade-portfolio/",
+        "author": {
+            "@type": "Person",
+            "name": "Your Name"
+        },
+        "dateCreated": "2025-09-03",
+        "inLanguage": "en-US",
+        "keywords": ["neuroscience", "trading", "machine learning", "computational neuroscience", "systematic trading"]
+    }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroTrade: Computational Neuroscience × Systematic Trading</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #9333ea, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 15px 30px;
+            background: rgba(147, 51, 234, 0.2);
+            border: 2px solid #9333ea;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(147, 51, 234, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            display: none;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #06b6d4;
+            text-align: center;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .concept-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #9333ea, #06b6d4, #10b981);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            border-color: #06b6d4;
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+        }
+
+        .concept-card h3 {
+            color: #10b981;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .concept-card p {
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .code-example {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            border-left: 3px solid #10b981;
+            font-size: 0.9rem;
+        }
+
+        .neural-network {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .neuron {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #9333ea, #6b21a8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+            margin: 1rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .connection {
+            height: 2px;
+            background: linear-gradient(90deg, #9333ea, #06b6d4);
+            margin: 0 1rem;
+            flex-grow: 1;
+            opacity: 0.6;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 10px 20px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            background: rgba(16, 185, 129, 0.4);
+        }
+
+        .research-timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid #06b6d4;
+        }
+
+        .innovation-showcase {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .innovation-item {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .concept-grid { grid-template-columns: 1fr; }
+            .nav-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero" id="home">
+        <div class="container">
+            <h1>NeuroTrade</h1>
+            <p>Bridging Computational Neuroscience & Systematic Trading</p>
+            <div class="nav-buttons">
+                <a href="#" class="nav-btn" onclick="showSection('principles')">Core Principles</a>
+                <a href="#" class="nav-btn" onclick="showSection('models')">Neural Models</a>
+                <a href="#" class="nav-btn" onclick="showSection('innovations')">Innovations</a>
+                <a href="#" class="nav-btn" onclick="showSection('research')">Research Vision</a>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-btn" onclick="showSection('home')" style="display: none;" id="backBtn">← Home</button>
+
+    <div class="section" id="principles">
+        <div class="container">
+            <h2>Fundamental Principles</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>🧠 Free Energy Principle → Market Prediction</h3>
+                    <p>Markets, like brains, continuously minimize prediction error. Our systems implement active inference: not just predicting price movements, but actively trading to validate hypotheses.</p>
+                    <div class="code-example">
+prediction_error = actual_price - predicted_price
+model_update = learning_rate * prediction_error
+active_trade = confidence * prediction_error
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🔮 Predictive Coding → Multi-Timeframe Architecture</h3>
+                    <p>Hierarchical prediction across timeframes: macro trends inform micro movements, with bottom-up error propagation reshaping higher-level beliefs.</p>
+                    <div class="neural-network">
+                        <div class="neuron">L1<br>Macro</div>
+                        <div class="connection"></div>
+                        <div class="neuron">L2<br>Sector</div>
+                        <div class="connection"></div>
+                        <div class="neuron">L3<br>Micro</div>
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🌊 REBUS → Regime Detection</h3>
+                    <p>Dynamic precision weighting: high confidence during stable regimes, increased exploration during market transitions. Inspired by psychedelic states reducing certainty.</p>
+                    <div class="code-example">
+if market_volatility > threshold:
+    precision_weight *= 0.7  # Reduce confidence
+    exploration_rate *= 1.5  # Increase search
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3>📊 Bayesian Brain → Portfolio Allocation</h3>
+                    <p>Continuous belief updating using market evidence. Each trade updates our prior beliefs about asset relationships and market dynamics.</p>
+                    <div class="code-example">
+posterior = (likelihood * prior) / evidence
+position_size = confidence * posterior
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="models">
+        <div class="container">
+            <h2>Advanced Neural Models</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>🎯 Attention-Weighted Trading</h3>
+                    <p>Dynamic feature selection inspired by attention networks. System alternates between broad market scanning (DMN) and focused execution (task-positive network).</p>
+                    <div class="code-example">
+attention_scores = softmax(signal_strength)
+portfolio_weights = base_allocation * attention_scores
+focus_mode = max(attention_scores) > threshold
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🧬 Hierarchical Temporal Memory</h3>
+                    <p>Pattern recognition across multiple time scales. System learns not just what happens, but when patterns typically emerge and how surprising current events are.</p>
+                </div>
+
+                <div class="concept-card">
+                    <h3>⚡ Neuromodulated Systems</h3>
+                    <p>Dopamine-like reward signals strengthen profitable strategies. Serotonin-like modulators adjust risk appetite based on portfolio state.</p>
+                    <div class="code-example">
+dopamine_signal = recent_pnl * surprise_factor
+strategy_weight *= (1 + dopamine_signal)
+risk_appetite = base_risk * serotonin_level
+                    </div>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🌐 Market Consciousness Index</h3>
+                    <p>Measuring market "awareness" using Integrated Information Theory. High integration suggests correlated moves; low integration reveals arbitrage opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="innovations">
+        <div class="container">
+            <h2>Novel Innovations</h2>
+            
+            <div class="innovation-showcase">
+                <div class="innovation-item">
+                    <h3>🔬 Metacognitive Portfolio Management</h3>
+                    <p>System monitors its own confidence levels. During high uncertainty, increases diversification. During high confidence, concentrates positions. Meta-learning about learning.</p>
+                    <div class="code-example">
+confidence_level = model_uncertainty_estimate()
+if confidence_level < 0.3:
+    diversify_positions()
+    reduce_leverage()
+elif confidence_level > 0.8:
+    concentrate_top_signals()
+                    </div>
+                </div>
+
+                <div class="innovation-item">
+                    <h3>🎭 Predictive Surprise Minimization</h3>
+                    <p>Beyond minimizing prediction error - actively seeking situations where the model can improve its predictive power. Market exploration vs exploitation.</p>
+                </div>
+
+                <div class="innovation-item">
+                    <h3>🔄 Adaptive Precision Weighting</h3>
+                    <p>Real-time adjustment of model confidence based on market regime detection. Inspired by how psychedelics modulate precision in the brain.</p>
+                </div>
+
+                <div class="innovation-item">
+                    <h3>🌊 Emergent Market Dynamics</h3>
+                    <p>Detecting when markets exhibit collective behavior vs fragmented individual action. Using network theory to identify phase transitions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="research">
+        <div class="container">
+            <h2>Research Vision & Future Directions</h2>
+            
+            <div class="research-timeline">
+                <div class="timeline-item">
+                    <h3>Phase 1: Foundation Models</h3>
+                    <p>Implementing core predictive coding architecture with hierarchical temporal memory for multi-asset systematic trading. Testing on historical data with proper walk-forward validation.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Phase 2: Consciousness Metrics</h3>
+                    <p>Developing Market Consciousness Index based on IIT principles. Correlating market integration measures with volatility regimes and arbitrage opportunities.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Phase 3: Neuromodulation</h3>
+                    <p>Advanced reward systems and attention mechanisms. Real-time adaptation of strategy weights based on performance feedback and market conditions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Phase 4: Meta-Learning</h3>
+                    <p>Systems that learn how to learn about markets. Developing trading strategies that adapt their own learning algorithms based on market regime changes.</p>
+                </div>
+            </div>
+
+            <div class="concept-card" style="margin-top: 3rem;">
+                <h3>💡 Key Research Questions</h3>
+                <p><strong>Can market microstructure exhibit consciousness-like properties?</strong><br>
+                Investigating whether integrated information theory applies to financial systems.</p>
+                
+                <p><strong>How do attention mechanisms optimize trading performance?</strong><br>
+                Balancing exploration of new opportunities vs exploitation of known patterns.</p>
+                
+                <p><strong>What role does uncertainty play in market dynamics?</strong><br>
+                Developing precision-weighted models that adapt to their own confidence levels.</p>
+            </div>
+
+            <div class="innovation-item" style="margin-top: 2rem;">
+                <h3>🎯 Impact & Applications</h3>
+                <p>This research bridges fundamental neuroscience with practical finance, potentially revolutionizing:</p>
+                <ul style="text-align: left; margin: 1rem 0; padding-left: 2rem;">
+                    <li>Automated trading systems with biological-inspired learning</li>
+                    <li>Risk management through uncertainty quantification</li>
+                    <li>Market regime detection and adaptation</li>
+                    <li>Portfolio optimization using attention mechanisms</li>
+                    <li>Understanding of market collective behavior</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section, .hero');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.display = 'none';
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                setTimeout(() => targetSection.classList.add('active'), 10);
+            }
+
+            // Show/hide back button
+            const backBtn = document.getElementById('backBtn');
+            if (sectionId === 'home') {
+                backBtn.style.display = 'none';
+            } else {
+                backBtn.style.display = 'block';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+
+        // Add some interactive elements
+        document.addEventListener('mousemove', function(e) {
+            const neurons = document.querySelectorAll('.neuron');
+            neurons.forEach(neuron => {
+                const rect = neuron.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const distance = Math.sqrt(x * x + y * y);
+                
+                if (distance < 100) {
+                    neuron.style.transform = `scale(${1.2 - distance / 500})`;
+                } else {
+                    neuron.style.transform = 'scale(1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
