@@ -162,31 +162,31 @@ Contributions welcome! Areas of particular interest:
 ```markdown
 # Research References
 
-## Core Neuroscience Papers
+Core Neuroscience Papers
 
-### Free Energy Principle
+Free Energy Principle
 - Friston, K. (2010). The free-energy principle: a unified brain theory?. *Nature Reviews Neuroscience*, 11(2), 127-138.
 - Friston, K. (2013). Active inference and free energy. *Behavioral and Brain Sciences*, 36(3), 212-213.
 
-### Predictive Coding
+Predictive Coding
 - Clark, A. (2013). Whatever next? Predictive brains, situated agents, and the future of cognitive science. *Behavioral and brain sciences*, 36(3), 181-204.
 - Hohwy, J. (2013). *The predictive mind: Cognitive processing and brain function*. Oxford University Press.
 
-### REBUS Model
+REBUS Model
 - Carhart-Harris, R. L. (2018). The entropic brain: a theory of conscious states informed by neuroimaging research with psychedelic drugs. *Frontiers in human neuroscience*, 12, 20.
 - Carhart-Harris, R. L., & Friston, K. J. (2019). REBUS and the anarchic brain: toward a unified model of the brain action of psychedelics. *Pharmacological reviews*, 71(3), 316-344.
 
-### Integrated Information Theory
+Integrated Information Theory
 - Tononi, G. (2008). Integrated information theory. *Scholarpedia*, 3(3), 4164.
 - Oizumi, M., Albantakis, L., & Tononi, G. (2014). From the phenomenology to the mechanisms of consciousness: integrated information theory 3.0. *PLoS computational biology*, 10(5), e1003588.
 
 ## Financial Applications
 
-### Behavioral Finance & Neuroscience
+Behavioral Finance & Neuroscience
 - Lo, A. W., & Repin, D. V. (2002). The psychophysiology of real-time financial risk processing. *Journal of cognitive neuroscience*, 14(3), 323-339.
 - Zweig, J. (2007). *Your money and your brain: How the new science of neuroeconomics can help make you rich*. Simon and Schuster.
 
-### Systematic Trading
+Systematic Trading
 - Narang, R. K. (2013). *Inside the black box: A simple guide to quantitative and high frequency trading*. John Wiley & Sons.
 - Chan, E. P. (2013). *Algorithmic trading: winning strategies and their rationales*. John Wiley & Sons.
 ```
