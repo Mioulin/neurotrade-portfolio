@@ -149,7 +149,7 @@ Contributions welcome! Areas of particular interest:
 ## 📧 Contact
 
 - **Portfolio Website**: [mioulin.github.io/neurotrade-portfolio](https://mioulin.github.io/neurotrade-portfolio/)
-- **LinkedIn**: [your-linkedin](https://linkedin.com/in/zalina-dezhina)
+- **LinkedIn**: [linkedin](https://linkedin.com/in/zalina-dezhina)
 - **Email**: dezhina@gmail.com
 
 ---
